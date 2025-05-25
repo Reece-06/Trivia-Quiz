@@ -7,41 +7,89 @@
   </head>
   <body>
     <div class="quiz-container">
-      <header class="header">
-        <h1 class="header-title">Trivia Quiz</h1>
-        <h2 class="header-category">Category: Animals</h2>
-        <div class="header-score-container">
-          <p class="header-score">Score: 1/5</p>
-        </div>
-      </header>
-      <main class="main">
-        <p class="main-question">What does XML stand for?</p>
-        <div class="main-answer-container">
-          <button class="main-button">
-            <p class="main-answer">extended Markup Language</p>
-            <p class="main-answer">Icon</p>
-          </button>
+      <div class="quiz-content">
+        <header class="header">
+          <h1 class="header-title">Trivia Quiz</h1>
+          <h2 class="header-category">Category: Animals</h2>
+          <div class="header-score-container">
+            <p class="header-score">Score: 1/5</p>
+          </div>
+        </header>
+        <main class="main">
+          <p class="main-question">What does XML stand for?</p>
+          <div class="main-answer-container">
+            <button class="main-button">
+              <p class="main-answer">extended Markup Language</p>
+              <p class="main-answer">Icon</p>
+            </button>
 
-          <button class="main-button">
-            <p class="main-answer">extended Markup Language</p>
-            <p class="main-answer">Icon</p>
-          </button>
+            <button class="main-button">
+              <p class="main-answer">extended Markup Language</p>
+              <p class="main-answer">Icon</p>
+            </button>
 
-          <button class="main-button">
-            <p class="main-answer">extended Markup Language</p>
-            <p class="main-answer">Icon</p>
-          </button>
+            <button class="main-button">
+              <p class="main-answer">extended Markup Language</p>
+              <p class="main-answer">Icon</p>
+            </button>
 
-          <button class="main-button">
-            <p class="main-answer">extended Markup Language</p>
-            <p class="main-answer">Icon</p>
-          </button>
-        </div>
-      </main>
-      <aside class="aside">
-        <p class="aside-question-count">1 of 9 questions</p>
-        <button class="aside-next">Next</button>
-      </aside>
+            <button class="main-button">
+              <p class="main-answer">extended Markup Language</p>
+              <p class="main-answer">Icon</p>
+            </button>
+          </div>
+        </main>
+        <aside class="aside">
+          <p class="aside-question-count">1 of 9 questions</p>
+          <button class="aside-next">Next</button>
+        </aside>
+      </div>
+      <form action="/api/gameSettings" method="post" class="form">
+        <label for="dificulty-input">Difficulty</label>
+        <input
+          id="dificulty-input"
+          name="dificulty-input"
+          type="text"
+          placeholder="easy, medium, hard"
+        />
+        <label for="num-questions-input">Number of Questions</label>
+        <input
+          id="num-questions-input"
+          name="num-questions-input"
+          type="number"
+          placeholder="Min 5 Max 50"
+        />
+        <select name="category-input" id="category-input">
+          <option value="">Any Category</option>
+          <option value="9">General Knowledge</option>
+          <option value="10">Entertainment: Books</option>
+          <option value="11">Entertainment: Film</option>
+          <option value="12">Entertainment: Music</option>
+          <option value="13">Entertainment: Musicals & Theatres</option>
+          <option value="14">Entertainment: Television</option>
+          <option value="15">Entertainment: Video Games</option>
+          <option value="16">Entertainment: Board Games</option>
+          <option value="17">Science & Nature</option>
+          <option value="18">Science: Computers</option>
+          <option value="19">Science: Mathematics</option>
+          <option value="20">Mythology</option>
+          <option value="21">Sports</option>
+          <option value="22">Geography</option>
+          <option value="23">History</option>
+          <option value="24">Politics</option>
+          <option value="25">Art</option>
+          <option value="26">Celebrities</option>
+          <option value="27">Animals</option>
+          <option value="28">Vehicles</option>
+          <option value="29">Entertainment: Comics</option>
+          <option value="30">Science: Gadgets</option>
+          <option value="31">Entertainment: Japanese Anime & Manga</option>
+          <option value="32">Entertainment: Cartoon & Animations</option>
+        </select>
+
+        <button type="submit" class="form-submit">Submit</button>
+      </form>
     </div>
+    <script type="module" src="scripts/game-settings.js"></script>
   </body>
 </html>
