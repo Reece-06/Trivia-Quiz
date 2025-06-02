@@ -9,7 +9,9 @@ const sendDataToServer = async (data) => {
         "Content-Type": "application/json",
       },
     });
-    console.log("Server response:", response.data);
+    const result = await response.json();
+
+    console.log("Server response:", result);
   } catch (error) {
     console.log(error);
   }
