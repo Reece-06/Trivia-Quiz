@@ -1,0 +1,28 @@
+.starting-screen {
+  display: block;
+}
+.form {
+  display: none;
+}
+.quiz-content {
+  display: none;
+}
+.hide-start-screen .starting-screen {
+  display: none;
+}
+.show-start-screen .starting-screen {
+  display: block;
+}
+.show-game-settings .form {
+  display: block;
+}
+.hide-game-settings .form {
+  display: none;
+}
+
+.hide-quiz-content .quiz-content {
+  display: none;
+}
+.show-quiz-content .quiz-content {
+  display: block;
+}
