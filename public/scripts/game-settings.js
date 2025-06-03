@@ -1,5 +1,5 @@
 const form = document.querySelector(".form");
-
+const labels = document.querySelectorAll(".difficulty-label");
 // Send data to server
 const sendDataToServer = async (data) => {
   let result;
@@ -42,4 +42,21 @@ const handleFormSubmit = (e) => {
   showQuizContent(parentContainer);
 };
 
+// Add event listener for the difficulty radio buttons
+const addDifficultyBtnsEvtListener = () => {
+  labels.forEach((label) => {
+    const radio = label.querySelector("input");
+
+    radio.addEventListener("change", () => {
+      // Remove "selected" class from all labels
+      labels.forEach((l) => l.classList.remove("selected"));
+
+      // Add to the selected one
+      if (radio.checked) {
+        label.classList.add("selected");
+      }
+    });
+  });
+};
 form.addEventListener("submit", handleFormSubmit);
+addDifficultyBtnsEvtListener();

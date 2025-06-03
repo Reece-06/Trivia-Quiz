@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trivia Game</title>
     <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/general.css" />
   </head>
   <body>
     <!-- hide-quiz-content hide-game-settings hide-start-screen show-quiz-content show-game-settings show-start-screen -->
@@ -15,13 +16,40 @@
       </div>
 
       <form action="/api/gameSettings" method="post" class="form">
-        <label for="dificulty-input">Difficulty</label>
-        <input
-          id="dificulty-input"
-          name="difficulty"
-          type="text"
-          placeholder="easy, medium, hard"
-        />
+        <label for="easy-input">Difficulty</label>
+        <!-- select-easy select-medium select-hard -->
+        <div class="difficulty-inputs">
+          <label for="easy-input" class="difficulty-label">
+            <input
+              class="difficulty-input"
+              type="radio"
+              id="easy-input"
+              name="difficulty"
+              value="easy"
+            />
+            <p class="difficulty-name">Easy</p>
+          </label>
+          <label for="medium-input" class="difficulty-label">
+            <input
+              class="difficulty-input"
+              type="radio"
+              id="medium-input"
+              name="difficulty"
+              value="medium"
+            />
+            <p class="difficulty-name">Medium</p>
+          </label>
+          <label for="hard-input" class="difficulty-label">
+            <input
+              class="difficulty-input"
+              type="radio"
+              id="hard-input"
+              name="difficulty"
+              value="hard"
+            />
+            <p class="difficulty-name">Hard</p>
+          </label>
+        </div>
         <label for="num-questions-input">Number of Questions</label>
         <input
           id="num-questions-input"
