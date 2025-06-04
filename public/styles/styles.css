@@ -47,3 +47,34 @@
 .difficulty-label.selected {
   border-color: skyblue;
 }
+.num-questions-container {
+  display: flex;
+  gap: 0.5rem;
+}
+/* WebKit and Blink */
+.num-questions-input::-webkit-outer-spin-button,
+.num-questions-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.num-questions-input {
+  --input-size: 2rem;
+  border: 2px solid #3b3b3b;
+  width: 4rem;
+  height: var(--input-size);
+  border-radius: 0.2rem;
+  text-align: center;
+}
+.num-questions-btn {
+  --button-size: 2rem;
+  border: 2px solid #3b3b3b;
+  width: var(--button-size);
+  height: var(--button-size);
+  background: transparent;
+  cursor: pointer;
+  border-radius: 0.2rem;
+}
+.num-questions-btn:hover,
+.num-questions-btn:active {
+  background: #eee;
+}

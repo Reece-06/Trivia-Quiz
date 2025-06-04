@@ -51,12 +51,18 @@
           </label>
         </div>
         <label for="num-questions-input">Number of Questions</label>
-        <input
-          id="num-questions-input"
-          name="numQuestions"
-          type="number"
-          placeholder="Min 5 Max 50"
-        />
+        <div class="num-questions-container">
+          <button class="num-questions-btn" type="button">-</button>
+          <input
+            id="num-questions-input"
+            name="numQuestions"
+            type="number"
+            class="num-questions-input"
+            value="5"
+          />
+          <button class="num-questions-btn" type="button">+</button>
+        </div>
+
         <select name="category" id="category-input">
           <option value="">Any Category</option>
           <option value="9">General Knowledge</option>
