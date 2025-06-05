@@ -66,33 +66,203 @@
             +
           </button>
         </div>
-
-        <select name="category" id="category-input">
-          <option value="">Any Category</option>
-          <option value="9">General Knowledge</option>
-          <option value="10">Entertainment: Books</option>
-          <option value="11">Entertainment: Film</option>
-          <option value="12">Entertainment: Music</option>
-          <option value="13">Entertainment: Musicals & Theatres</option>
-          <option value="14">Entertainment: Television</option>
-          <option value="15">Entertainment: Video Games</option>
-          <option value="16">Entertainment: Board Games</option>
-          <option value="17">Science & Nature</option>
-          <option value="18">Science: Computers</option>
-          <option value="19">Science: Mathematics</option>
-          <option value="20">Mythology</option>
-          <option value="21">Sports</option>
-          <option value="22">Geography</option>
-          <option value="23">History</option>
-          <option value="24">Politics</option>
-          <option value="25">Art</option>
-          <option value="26">Celebrities</option>
-          <option value="27">Animals</option>
-          <option value="28">Vehicles</option>
-          <option value="29">Entertainment: Comics</option>
-          <option value="30">Science: Gadgets</option>
-          <option value="31">Entertainment: Japanese Anime & Manga</option>
-          <option value="32">Entertainment: Cartoon & Animations</option>
+        <label for="category-input">Category</label>
+        <select name="category" id="category-input" class="category-select">
+          <button>
+            <selectedcontent></selectedcontent>
+          </button>
+          <option class="category-option" value="9">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/brain.png"
+              alt="General Knowledge"
+            />
+            <div>General Knowledge</div>
+          </option>
+          <option class="category-option" value="10">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/open-book--v2.png"
+              alt="Books"
+            />
+            <div>Entertainment: Books</div>
+          </option>
+          <option class="category-option" value="11">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/documentary.png"
+              alt="documentary"
+            />
+            <div>Entertainment: Film</div>
+          </option>
+          <option class="category-option" value="12">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/musical-notes.png"
+              alt="Music"
+            />
+            <div>Entertainment: Music</div>
+          </option>
+          <option class="category-option" value="13">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/comedy.png"
+              alt="comedy"
+            />
+            <div>Entertainment: Musicals & Theatres</div>
+          </option>
+          <option class="category-option" value="14">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/retro-tv.png"
+              alt="Television"
+            />
+            <div>Entertainment: Television</div>
+          </option>
+          <option class="category-option" value="15">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/controller.png"
+              alt="Video Games"
+            />
+            <div>Entertainment: Video Games</div>
+          </option>
+          <option class="category-option" value="16">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/dice.png"
+              alt="dice"
+            />
+            <div>Entertainment: Board Games</div>
+          </option>
+          <option class="category-option" value="17">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/nature.png"
+              alt="Nature"
+            />
+            <div>Science & Nature</div>
+          </option>
+          <option class="category-option" value="18">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/workstation.png"
+              alt="workstation"
+            />
+            <div>Science: Computers</div>
+          </option>
+          <option class="category-option" value="19">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/calculator.png"
+              alt="Mathematics"
+            />
+            <div>Science: Mathematics</div>
+          </option>
+          <option class="category-option" value="20">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/unicorn.png"
+              alt="unicorn"
+            />
+            <div>Mythology</div>
+          </option>
+          <option class="category-option" value="21">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/soccer-ball.png"
+              alt="Sports"
+            />
+            <div>Sports</div>
+          </option>
+          <option class="category-option" value="22">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/globe--v1.png"
+              alt="Geography"
+            />
+            <div>Geography</div>
+          </option>
+          <option class="category-option" value="23">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/scroll.png"
+              alt="scroll"
+            />
+            <div>History</div>
+          </option>
+          <option class="category-option" value="24">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/us-capitol.png"
+              alt="us-capitol"
+            />
+            <div>Politics</div>
+          </option>
+          <option class="category-option" value="25">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/paint-palette.png"
+              alt="Art"
+            />
+            <div>Art</div>
+          </option>
+          <option class="category-option" value="26">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/star.png"
+              alt="Celebrities"
+            />
+            <div>Celebrities</div>
+          </option>
+          <option class="category-option" value="27">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/cat.png"
+              alt="Animals"
+            />
+            <div>Animals</div>
+          </option>
+          <option class="category-option" value="28">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/car.png"
+              alt="Vehicles"
+            />
+            <div>Vehicles</div>
+          </option>
+          <option class="category-option" value="29">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/magazine.png"
+              alt="magazine"
+            />
+            <div>Entertainment: Comics</div>
+          </option>
+          <option class="category-option" value="30">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/electronics.png"
+              alt="Gadgets"
+            />
+            <div>Science: Gadgets</div>
+          </option>
+          <option class="category-option" value="31">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/sakura.png"
+              alt="sakura"
+            />
+            <div>Entertainment: Japanese Anime & Manga</div>
+          </option>
+          <option class="category-option" value="32">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/tv-show.png"
+              alt="Cartoons"
+            />
+            <div>Entertainment: Cartoon & Animations</div>
+          </option>
         </select>
 
         <button type="submit" class="form-submit">Submit</button>

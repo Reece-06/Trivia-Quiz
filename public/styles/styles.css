@@ -78,3 +78,45 @@
 .num-questions-btn:active {
   background: #eee;
 }
+
+.category-select,
+::picker(select) {
+  appearance: base-select;
+}
+::picker(select) {
+  border-radius: 1rem;
+  max-height: 20rem;
+}
+.category-select,
+.category-option {
+  padding: 0.5rem;
+}
+.category-select {
+  display: block;
+}
+selectedcontent,
+.category-option {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+selectedcontent .category-img {
+  display: none;
+}
+
+.category-select::picker-icon {
+  margin: auto 0;
+}
+.category-option::checkmark {
+  display: none;
+}
+.category-option:hover {
+  background-color: #eee;
+}
+.category-option:checked {
+  background-color: lightsalmon;
+}
+.category-img {
+  width: 3rem;
+  height: auto;
+}

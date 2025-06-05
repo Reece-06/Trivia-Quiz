@@ -38,6 +38,7 @@ const handleFormSubmit = (e) => {
   const data = Object.fromEntries(formData.entries());
   console.log(data);
   const trivias = sendDataToServer(data);
+
   const parentContainer = document.querySelector(".quiz-container");
   hideGameSettings(parentContainer);
   showQuizContent(parentContainer);
