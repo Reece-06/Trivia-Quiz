@@ -1,3 +1,4 @@
+import { startQuiz, setTriviasData } from "./quiz-game.js";
 const form = document.querySelector(".form");
 const labels = document.querySelectorAll(".difficulty-label");
 
@@ -29,7 +30,7 @@ const showQuizContent = (parentContainer) => {
   parentContainer.classList.toggle("show-quiz-content");
 };
 // Handle a form submit
-const handleFormSubmit = (e) => {
+const handleFormSubmit = async (e) => {
   e.preventDefault();
 
   const formData = new FormData(form);
@@ -37,10 +38,13 @@ const handleFormSubmit = (e) => {
   console.log(formData.entries());
   const data = Object.fromEntries(formData.entries());
   console.log(data);
-  const trivias = sendDataToServer(data);
+  const trivias = await sendDataToServer(data);
+  setTriviasData(trivias);
 
   const parentContainer = document.querySelector(".quiz-container");
   hideGameSettings(parentContainer);
+
+  startQuiz();
   showQuizContent(parentContainer);
 };
 

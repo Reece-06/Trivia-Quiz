@@ -270,10 +270,15 @@
       <div class="quiz-content">
         <header class="header">
           <h1 class="header-title">Trivia Quiz</h1>
-          <h2 class="header-category">Category: Animals</h2>
+          <h2 class="header-category-p">
+            Category: <span class="header-category">Animals</span>
+          </h2>
           <div class="header-score-container">
-            <p class="header-score">Score: 1/5</p>
+            <p class="header-score">
+              Score: 1/<span class="num-question"></span>
+            </p>
           </div>
+          <p>Timer: <span class="current-time"></span></p>
         </header>
         <main class="main">
           <p class="main-question">What does XML stand for?</p>
@@ -300,12 +305,16 @@
           </div>
         </main>
         <aside class="aside">
-          <p class="aside-question-count">1 of 9 questions</p>
-          <button class="aside-next">Next</button>
+          <p class="aside-question-count">
+            <span class="aside-curr-question">1</span> of
+            <span class="num-question"></span> questions
+          </p>
+          <button class="aside-next" type="button" disabled>Next</button>
         </aside>
       </div>
     </div>
     <script type="module" src="scripts/game-settings.js"></script>
     <script type="module" src="scripts/starting-screen.js"></script>
+    <script type="module" src="scripts/quiz-game.js"></script>
   </body>
 </html>
