@@ -1,5 +1,6 @@
 const form = document.querySelector(".form");
 const labels = document.querySelectorAll(".difficulty-label");
+
 // Send data to server
 const sendDataToServer = async (data) => {
   let result;
@@ -58,5 +59,58 @@ const addDifficultyBtnsEvtListener = () => {
     });
   });
 };
+// Disable decrease num of questions button
+const disableDecreaseBtn = () => {
+  const decBtn = document.querySelector("#decrease-btn");
+  decBtn.setAttribute("disabled", "");
+};
+// Disable increase num of questions button
+const disableIncreaseBtn = () => {
+  const incBtn = document.querySelector("#increase-btn");
+  incBtn.setAttribute("disabled", "");
+};
+// Reenable diabled increase num of questions button
+const reenableIncreaseBtn = () => {
+  const incBtn = document.querySelector("#increase-btn");
+  incBtn.removeAttribute("disabled");
+};
+// Reenable  diabled decrease num of questions button
+const reenableDecreaseBtn = () => {
+  const incBtn = document.querySelector("#decrease-btn");
+  incBtn.removeAttribute("disabled");
+};
+// Add event listener to increase and decrease btn
+const addNumQuestionsEvtListener = () => {
+  const numQuestionsBtns = document.querySelectorAll(".num-questions-btn");
+  const numQuestionsInput = document.querySelector("#num-questions-input");
+  const MIN = 5;
+  const MAX = 50;
+  numQuestionsBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      let currentValue = Number(numQuestionsInput.value);
+
+      if (btn.id === "decrease-btn" && currentValue > MIN) {
+        currentValue -= 5;
+      } else if (btn.id === "increase-btn" && currentValue < MAX) {
+        currentValue += 5;
+      }
+      numQuestionsInput.value = currentValue;
+      if (currentValue <= MIN) {
+        disableDecreaseBtn();
+      } else {
+        reenableDecreaseBtn();
+      }
+
+      if (currentValue >= MAX) {
+        disableIncreaseBtn();
+      } else {
+        reenableIncreaseBtn();
+      }
+    });
+  });
+};
 form.addEventListener("submit", handleFormSubmit);
+
 addDifficultyBtnsEvtListener();
+disableDecreaseBtn();
+addNumQuestionsEvtListener();
