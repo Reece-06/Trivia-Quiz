@@ -74,6 +74,14 @@ const changeCurrTime = (currTime) => {
   const currTimeInput = document.querySelector(".current-time");
   currTimeInput.textContent = currTime;
 };
+// Reveals the correct answer and all wrong ansers
+const revealAllAnswers = () => {
+  answerBtns.forEach((answerBtn) => {
+    answerBtn.dataset.correct
+      ? answerBtn.classList.add("correct")
+      : answerBtn.classList.add("wrong");
+  });
+};
 // start Timer
 const startTimer = () => {
   let currentTime = 10;
@@ -86,6 +94,8 @@ const startTimer = () => {
       clearInterval(quizTimer);
       // currentTriviaInx++;
       nextBtn.removeAttribute("disabled");
+      revealAllAnswers();
+      disableAllAnswerBtns();
     }
   }, 1000);
   return quizTimer;
