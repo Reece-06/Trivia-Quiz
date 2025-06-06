@@ -120,3 +120,10 @@ selectedcontent .category-img {
   width: 3rem;
   height: auto;
 }
+
+.main-button.correct {
+  background-color: lightgreen;
+}
+.main-button.wrong {
+  background-color: lightcoral;
+}

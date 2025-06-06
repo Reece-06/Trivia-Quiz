@@ -1,13 +1,23 @@
 const nextBtn = document.querySelector(".aside-next");
 let triviasData;
 let currentTriviaInx = 0;
+const answerBtns = document.querySelectorAll(".main-button");
+let currentQuizTimer;
+let currentCorrAnsCount = 0;
 // Set triviasdata variable
 const setTriviasData = (data) => {
   triviasData = data;
 };
+const markCorrectButton = (index) => {
+  const btns = document.querySelectorAll(".main-button");
+  if (btns[index]) {
+    btns[index].dataset.correct = "true";
+  }
+};
 // Create new Answers
 const createNewAnswers = (currTrivia) => {
-  const correctPlacement = Math.floor(Math.random() * (4 - 1 + 1)) - 1;
+  const correctPlacement = Math.floor(Math.random() * 4);
+  markCorrectButton(correctPlacement);
 
   const correctAnswer = currTrivia.correct_answer;
 
@@ -48,14 +58,16 @@ const changeCategoryValue = (category) => {
 };
 // Load questions and other significant quiz info
 const loadQuestions = () => {
+  removeCorrectAndWrong();
+  reenableAllAnswerBtns();
   nextBtn.setAttribute("disabled", "");
   const currentTrivia = triviasData[currentTriviaInx];
   const newAnswers = createNewAnswers(currentTrivia);
   changeAnswersValue(newAnswers);
   const question = currentTrivia.question;
   changeQuestionValue(question);
-  const currentQuesNum = currentTriviaInx + 1;
-  changeCurrQuestionNum(currentQuesNum);
+  currentTriviaInx++;
+  changeCurrQuestionNum(currentTriviaInx);
 };
 // Change current time
 const changeCurrTime = (currTime) => {
@@ -72,14 +84,65 @@ const startTimer = () => {
 
     if (currentTime <= 0) {
       clearInterval(quizTimer);
-      currentTriviaInx++;
+      // currentTriviaInx++;
       nextBtn.removeAttribute("disabled");
     }
   }, 1000);
+  return quizTimer;
+};
+// remove correct and wrong styling
+const removeCorrectAndWrong = () => {
+  answerBtns.forEach((answerBtn) => {
+    answerBtn.classList.remove("correct", "wrong");
+  });
+};
+// Check for the correct answer button
+const checkCorrectAnswer = (e) => {
+  const btnClicked = e.target;
+
+  if (btnClicked.dataset.correct) {
+    btnClicked.classList.add("correct");
+    currentCorrAnsCount++;
+    changeCorrectAnswerCount();
+  } else {
+    btnClicked.classList.add("wrong");
+    const correctBtn = [...answerBtns].find(
+      (answerBtn) => answerBtn.dataset.correct === "true"
+    );
+    correctBtn.classList.add("correct");
+  }
+};
+// Reenable all answer btns
+const reenableAllAnswerBtns = () => {
+  answerBtns.forEach((answerBtn) => {
+    answerBtn.removeAttribute("disabled");
+  });
+};
+// Disable all answer btns
+const disableAllAnswerBtns = () => {
+  answerBtns.forEach((answerBtn) => {
+    answerBtn.setAttribute("disabled", "");
+  });
+};
+// Set event listener for answer buttons
+const answerBtnsAddEventListener = () => {
+  answerBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      checkCorrectAnswer(e);
+      clearInterval(currentQuizTimer);
+      nextBtn.removeAttribute("disabled");
+      disableAllAnswerBtns();
+    });
+  });
+};
+// Change correct answer count
+const changeCorrectAnswerCount = () => {
+  const corrAnswerCountInput = document.querySelector(".correct-answer-count");
+  corrAnswerCountInput.textContent = currentCorrAnsCount;
 };
 // Start the quiz
 const startQuiz = () => {
-  let isGameDone = false;
+  // let isGameDone = false;
 
   const category = triviasData[0].category;
   changeCategoryValue(category);
@@ -87,17 +150,16 @@ const startQuiz = () => {
   const numOfQuestions = triviasData.length;
   changeNumQuestionsValue(numOfQuestions);
 
+  changeCorrectAnswerCount();
+
   loadQuestions();
 
-  startTimer();
-
-  if (isGameDone) {
-    clearInterval(intervalId);
-  }
+  currentQuizTimer = startTimer();
 };
+answerBtnsAddEventListener();
 nextBtn.addEventListener("click", () => {
   loadQuestions();
-  startTimer();
+  currentQuizTimer = startTimer();
 });
 
 export { startQuiz, setTriviasData };
