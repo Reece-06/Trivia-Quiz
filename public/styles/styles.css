@@ -7,23 +7,22 @@
 .quiz-content {
   display: none;
 }
+.quiz-results {
+  display: none;
+}
 .hide-start-screen .starting-screen {
   display: none;
 }
-.show-start-screen .starting-screen {
-  display: block;
-}
+
 .show-game-settings .form {
   display: block;
 }
-.hide-game-settings .form {
-  display: none;
+
+.show-quiz-content .quiz-content {
+  display: block;
 }
 
-.hide-quiz-content .quiz-content {
-  display: none;
-}
-.show-quiz-content .quiz-content {
+.show-results .quiz-results {
   display: block;
 }
 

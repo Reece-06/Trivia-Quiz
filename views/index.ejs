@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/general.css" />
   </head>
   <body>
-    <!-- hide-quiz-content hide-game-settings hide-start-screen show-quiz-content show-game-settings show-start-screen -->
+    <!-- hide-quiz-content hide-game-settings hide-start-screen show-quiz-content show-game-settings show-start-screen hide-results show-results -->
     <div class="quiz-container">
       <div class="starting-screen">
         <h1 class="starting-screen-title">Trivia Quiz</h1>
@@ -314,9 +314,22 @@
           <button class="aside-next" type="button" disabled>Next</button>
         </aside>
       </div>
+      <div class="quiz-results">
+        <img src="" alt="" />
+        <p class="quiz-results-p1">You have completed the quiz!</p>
+        <p class="quiz-results-p2">
+          Nice you have got <span class="results-num-corr"></span> out of
+          <span class="results-num-ques"></span>
+        </p>
+        <div class="results-btn-container">
+          <button class="results-try">Try Again</button>
+          <button class="results-game-sett">Game Settings</button>
+        </div>
+      </div>
     </div>
     <script type="module" src="scripts/game-settings.js"></script>
     <script type="module" src="scripts/starting-screen.js"></script>
     <script type="module" src="scripts/quiz-game.js"></script>
+    <script type="module" src="scripts/game-results.js"></script>
   </body>
 </html>

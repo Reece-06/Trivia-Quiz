@@ -1,3 +1,4 @@
+import { showGameResults } from "./game-results.js";
 const nextBtn = document.querySelector(".aside-next");
 let triviasData;
 let currentTriviaInx = 0;
@@ -56,8 +57,16 @@ const changeCategoryValue = (category) => {
   const categoryInput = document.querySelector(".header-category");
   categoryInput.textContent = category;
 };
+// Removes previous correct data attribute.
+const removeCorrectDataAttr = () => {
+  const correctAns = [...answerBtns].find(
+    (answerBtn) => answerBtn.dataset.correct === "true"
+  );
+  correctAns ? correctAns.removeAttribute("data-correct") : null;
+};
 // Load questions and other significant quiz info
 const loadQuestions = () => {
+  removeCorrectDataAttr();
   removeCorrectAndWrong();
   reenableAllAnswerBtns();
   nextBtn.setAttribute("disabled", "");
@@ -168,8 +177,15 @@ const startQuiz = () => {
 };
 answerBtnsAddEventListener();
 nextBtn.addEventListener("click", () => {
-  loadQuestions();
-  currentQuizTimer = startTimer();
+  if (currentTriviaInx + 1 === triviasData.length) {
+    nextBtn.textContent = "See Results";
+  }
+  if (currentTriviaInx + 1 <= triviasData.length) {
+    loadQuestions();
+    currentQuizTimer = startTimer();
+  } else {
+    showGameResults(currentCorrAnsCount, currentTriviaInx);
+  }
 });
 
 export { startQuiz, setTriviasData };

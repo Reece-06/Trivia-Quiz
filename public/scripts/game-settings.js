@@ -23,11 +23,30 @@ const sendDataToServer = async (data) => {
 };
 // Hide game settings
 const hideGameSettings = (parentContainer) => {
-  parentContainer.classList.toggle("hide-game-settings");
+  parentContainer.classList.remove("show-game-settings");
 };
 // Show quiz content
 const showQuizContent = (parentContainer) => {
   parentContainer.classList.toggle("show-quiz-content");
+};
+// Resets Input Values and Styling to default
+const resetInputs = () => {
+  const diffLabels = document.querySelectorAll(".difficulty-label");
+  const numQuesInput = document.querySelector(".num-questions-input");
+  const selectInput = document.querySelector(".category-select");
+  const diffLabel = [...diffLabels].find((label) =>
+    label.classList.contains("selected")
+  );
+  if (diffLabel) {
+    diffLabel.classList.remove("selected");
+    const radio = diffLabel.querySelector("input");
+    console.log("radio.checked", radio.checked);
+    radio.checked = false;
+  }
+
+  numQuesInput.value = 5;
+
+  selectInput.value = 9;
 };
 // Handle a form submit
 const handleFormSubmit = async (e) => {
@@ -43,6 +62,7 @@ const handleFormSubmit = async (e) => {
 
   const parentContainer = document.querySelector(".quiz-container");
   hideGameSettings(parentContainer);
+  resetInputs();
 
   startQuiz();
   showQuizContent(parentContainer);
