@@ -1,8 +1,8 @@
 import { showGameResults } from "./game-results.js";
 const nextBtn = document.querySelector(".aside-next");
+const answerBtns = document.querySelectorAll(".main-button");
 let triviasData;
 let currentTriviaInx = 0;
-const answerBtns = document.querySelectorAll(".main-button");
 let currentQuizTimer;
 let currentCorrAnsCount = 0;
 // Set triviasdata variable
@@ -159,10 +159,19 @@ const changeCorrectAnswerCount = () => {
   const corrAnswerCountInput = document.querySelector(".correct-answer-count");
   corrAnswerCountInput.textContent = currentCorrAnsCount;
 };
+// Reset all trivia data
+const resetGameVariables = () => {
+  triviasData = undefined;
+  currentTriviaInx = 0;
+};
+// Reset Current Trivia Index
+const resetCurrTriviaInx = () => {
+  currentTriviaInx = 0;
+};
 // Start the quiz
 const startQuiz = () => {
   // let isGameDone = false;
-
+  currentCorrAnsCount = 0;
   const category = triviasData[0].category;
   changeCategoryValue(category);
 
@@ -185,7 +194,8 @@ nextBtn.addEventListener("click", () => {
     currentQuizTimer = startTimer();
   } else {
     showGameResults(currentCorrAnsCount, currentTriviaInx);
+    nextBtn.textContent = "Next";
   }
 });
 
-export { startQuiz, setTriviasData };
+export { startQuiz, setTriviasData, resetGameVariables, resetCurrTriviaInx };
