@@ -40,7 +40,7 @@ const resetInputs = () => {
   if (diffLabel) {
     diffLabel.classList.remove("selected");
     const radio = diffLabel.querySelector("input");
-    console.log("radio.checked", radio.checked);
+
     radio.checked = false;
   }
 
@@ -54,7 +54,6 @@ const handleFormSubmit = async (e) => {
 
   const formData = new FormData(form);
 
-  console.log(formData.entries());
   const data = Object.fromEntries(formData.entries());
   console.log(data);
   const trivias = await sendDataToServer(data);
