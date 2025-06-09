@@ -18,54 +18,6 @@
       <form action="/api/gameSettings" method="post" class="form">
         <label for="easy-input">Difficulty</label>
         <!-- select-easy select-medium select-hard -->
-        <div class="difficulty-inputs">
-          <label for="easy-input" class="difficulty-label">
-            <input
-              class="difficulty-input"
-              type="radio"
-              id="easy-input"
-              name="difficulty"
-              value="easy"
-            />
-            <p class="difficulty-name">Easy</p>
-          </label>
-          <label for="medium-input" class="difficulty-label">
-            <input
-              class="difficulty-input"
-              type="radio"
-              id="medium-input"
-              name="difficulty"
-              value="medium"
-            />
-            <p class="difficulty-name">Medium</p>
-          </label>
-          <label for="hard-input" class="difficulty-label">
-            <input
-              class="difficulty-input"
-              type="radio"
-              id="hard-input"
-              name="difficulty"
-              value="hard"
-            />
-            <p class="difficulty-name">Hard</p>
-          </label>
-        </div>
-        <label for="num-questions-input">Number of Questions</label>
-        <div class="num-questions-container">
-          <button class="num-questions-btn" type="button" id="decrease-btn">
-            -
-          </button>
-          <input
-            id="num-questions-input"
-            name="numQuestions"
-            type="number"
-            class="num-questions-input"
-            value="5"
-          />
-          <button class="num-questions-btn" type="button" id="increase-btn">
-            +
-          </button>
-        </div>
         <label for="category-input">Category</label>
         <select name="category" id="category-input" class="category-select">
           <button>
@@ -264,6 +216,54 @@
             <div>Entertainment: Cartoon & Animations</div>
           </option>
         </select>
+        <div class="difficulty-inputs">
+          <label for="easy-input" class="difficulty-label">
+            <input
+              class="difficulty-input"
+              type="radio"
+              id="easy-input"
+              name="difficulty"
+              value="easy"
+            />
+            <p class="difficulty-name">Easy</p>
+          </label>
+          <label for="medium-input" class="difficulty-label">
+            <input
+              class="difficulty-input"
+              type="radio"
+              id="medium-input"
+              name="difficulty"
+              value="medium"
+            />
+            <p class="difficulty-name">Medium</p>
+          </label>
+          <label for="hard-input" class="difficulty-label">
+            <input
+              class="difficulty-input"
+              type="radio"
+              id="hard-input"
+              name="difficulty"
+              value="hard"
+            />
+            <p class="difficulty-name">Hard</p>
+          </label>
+        </div>
+        <label for="num-questions-input">Number of Questions</label>
+        <div class="num-questions-container">
+          <button class="num-questions-btn" type="button" id="decrease-btn">
+            -
+          </button>
+          <input
+            id="num-questions-input"
+            name="numQuestions"
+            type="number"
+            class="num-questions-input"
+            value="5"
+          />
+          <button class="num-questions-btn" type="button" id="increase-btn">
+            +
+          </button>
+        </div>
 
         <button type="submit" class="form-submit">Submit</button>
       </form>

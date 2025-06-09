@@ -32,7 +32,7 @@ const createNewAnswers = (currTrivia) => {
 const changeAnswersValue = (newAnswers) => {
   const buttons = document.querySelectorAll(".main-button");
   buttons.forEach((btn, index) => {
-    btn.textContent = newAnswers[index];
+    btn.innerHTML = newAnswers[index];
   });
 };
 // Change the text content of question
