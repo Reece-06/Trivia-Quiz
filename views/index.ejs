@@ -18,7 +18,12 @@
       <form action="/api/gameSettings" method="post" class="form">
         <!-- select-easy select-medium select-hard -->
         <label for="category-input">Category</label>
-        <select name="category" id="category-input" class="category-select">
+        <select
+          name="category"
+          id="category-input"
+          class="category-select"
+          required
+        >
           <button>
             <selectedcontent></selectedcontent>
           </button>
@@ -219,6 +224,7 @@
         <div class="difficulty-inputs">
           <label for="easy-input" class="difficulty-label">
             <input
+              required
               class="difficulty-input"
               type="radio"
               id="easy-input"
@@ -259,6 +265,9 @@
             type="number"
             class="num-questions-input"
             value="5"
+            required
+            min="5"
+            max="50"
           />
           <button class="num-questions-btn" type="button" id="increase-btn">
             +
