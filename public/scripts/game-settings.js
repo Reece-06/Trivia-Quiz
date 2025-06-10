@@ -48,24 +48,40 @@ const resetInputs = () => {
 
   selectInput.value = 9;
 };
+// Check if a difficulty is selected
+const checkSelectedDifficulty = () => {
+  const labels = document.querySelectorAll(".difficulty-label");
+  const label = [...labels].find(
+    (label) => label.classList.contains("selected") && label.children[0].checked
+  );
+  const parent = document.querySelector(".difficulty-upper-container");
+  console.log(label);
+  if (!label) {
+    parent.classList.add("show-diff-error");
+    return false;
+  }
+  return true;
+};
 // Handle a form submit
 const handleFormSubmit = async (e) => {
   e.preventDefault();
+  const isdiffInputVaid = checkSelectedDifficulty();
+  if (isdiffInputVaid && true && true) {
+    const formData = new FormData(form);
 
-  const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    console.log(data);
+    const trivias = await sendDataToServer(data);
+    resetInputs();
 
-  const data = Object.fromEntries(formData.entries());
-  console.log(data);
-  const trivias = await sendDataToServer(data);
-  resetInputs();
+    resetGameVariables();
+    setTriviasData(trivias);
+    startQuiz();
 
-  resetGameVariables();
-  setTriviasData(trivias);
-  startQuiz();
-
-  const parentContainer = document.querySelector(".quiz-container");
-  hideGameSettings(parentContainer);
-  showQuizContent(parentContainer);
+    const parentContainer = document.querySelector(".quiz-container");
+    hideGameSettings(parentContainer);
+    showQuizContent(parentContainer);
+  }
 };
 
 // Add event listener for the difficulty radio buttons

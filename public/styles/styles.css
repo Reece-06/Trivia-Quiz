@@ -27,6 +27,17 @@
 }
 
 /* GAME SETTINGS */
+.difficulty-upper-container {
+  display: flex;
+  gap: 1rem;
+}
+.difficulty-error {
+  display: none;
+  color: red;
+}
+.show-diff-error .difficulty-error {
+  display: block;
+}
 .difficulty-inputs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
