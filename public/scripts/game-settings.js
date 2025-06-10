@@ -1,7 +1,7 @@
 import { startQuiz, setTriviasData, resetGameVariables } from "./quiz-game.js";
 const form = document.querySelector(".form");
 const labels = document.querySelectorAll(".difficulty-label");
-
+const numQuestionsInput = document.querySelector(".num-questions-input");
 // Send data to server
 const sendDataToServer = async (data) => {
   let result;
@@ -120,30 +120,71 @@ const reenableDecreaseBtn = () => {
   const incBtn = document.querySelector("#decrease-btn");
   incBtn.removeAttribute("disabled");
 };
+// Check the number of questions with a min of 5 and max of 50.
+const checkInputtedNumQues = (e) => {
+  const inputVal = parseInt(e.target.value);
+
+  const parent = document.querySelector(".num-ques-upper");
+  const min = 5;
+  const max = 50;
+
+  reenableDecreaseBtn();
+  reenableIncreaseBtn();
+
+  if (inputVal >= min && inputVal <= max) {
+    parent.classList.remove("show-num-ques-error");
+    if (inputVal === min) {
+      disableDecreaseBtn();
+    } else if (inputVal === max) {
+      disableIncreaseBtn();
+    } else {
+      reenableDecreaseBtn();
+      reenableIncreaseBtn();
+    }
+  } else {
+    parent.classList.add("show-num-ques-error");
+    parent.children[1].textContent = "Value must be between 5 and 50.";
+
+    if (inputVal > max) {
+      disableIncreaseBtn();
+    } else {
+      disableDecreaseBtn();
+    }
+  }
+};
 // Add event listener to increase and decrease btn
 const addNumQuestionsEvtListener = () => {
   const numQuestionsBtns = document.querySelectorAll(".num-questions-btn");
   const numQuestionsInput = document.querySelector("#num-questions-input");
+  const parent = document.querySelector(".num-ques-upper");
   const MIN = 5;
   const MAX = 50;
   numQuestionsBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
+      parent.classList.remove("show-num-ques-error");
+
       let currentValue = Number(numQuestionsInput.value);
 
       if (btn.id === "decrease-btn" && currentValue > MIN) {
-        currentValue -= 5;
+        currentValue -= 1;
       } else if (btn.id === "increase-btn" && currentValue < MAX) {
-        currentValue += 5;
+        currentValue += 1;
       }
       numQuestionsInput.value = currentValue;
       if (currentValue <= MIN) {
         disableDecreaseBtn();
+        if (currentValue < MIN) {
+          parent.classList.add("show-num-ques-error");
+        }
       } else {
         reenableDecreaseBtn();
       }
 
       if (currentValue >= MAX) {
         disableIncreaseBtn();
+        if (currentValue > MAX) {
+          parent.classList.add("show-num-ques-error");
+        }
       } else {
         reenableIncreaseBtn();
       }
@@ -154,4 +195,7 @@ form.addEventListener("submit", handleFormSubmit);
 
 addDifficultyBtnsEvtListener();
 disableDecreaseBtn();
+
+numQuestionsInput.addEventListener("input", (e) => checkInputtedNumQues(e));
+
 addNumQuestionsEvtListener();
