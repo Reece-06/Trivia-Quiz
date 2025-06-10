@@ -2,6 +2,7 @@ import { startQuiz, setTriviasData, resetGameVariables } from "./quiz-game.js";
 const form = document.querySelector(".form");
 const labels = document.querySelectorAll(".difficulty-label");
 const numQuestionsInput = document.querySelector(".num-questions-input");
+let isNumQuesValid = false;
 // Send data to server
 const sendDataToServer = async (data) => {
   let result;
@@ -66,7 +67,7 @@ const checkSelectedDifficulty = () => {
 const handleFormSubmit = async (e) => {
   e.preventDefault();
   const isdiffInputVaid = checkSelectedDifficulty();
-  if (isdiffInputVaid && true && true) {
+  if (isdiffInputVaid && isNumQuesValid && true) {
     const formData = new FormData(form);
 
     const data = Object.fromEntries(formData.entries());
@@ -141,6 +142,7 @@ const checkInputtedNumQues = (e) => {
       reenableDecreaseBtn();
       reenableIncreaseBtn();
     }
+    isNumQuesValid = true;
   } else {
     parent.classList.add("show-num-ques-error");
     parent.children[1].textContent = "Value must be between 5 and 50.";
@@ -150,6 +152,7 @@ const checkInputtedNumQues = (e) => {
     } else {
       disableDecreaseBtn();
     }
+    isNumQuesValid = false;
   }
 };
 // Add event listener to increase and decrease btn
@@ -175,18 +178,22 @@ const addNumQuestionsEvtListener = () => {
         disableDecreaseBtn();
         if (currentValue < MIN) {
           parent.classList.add("show-num-ques-error");
+          isNumQuesValid = false;
         }
       } else {
         reenableDecreaseBtn();
+        isNumQuesValid = true;
       }
 
       if (currentValue >= MAX) {
         disableIncreaseBtn();
         if (currentValue > MAX) {
           parent.classList.add("show-num-ques-error");
+          isNumQuesValid = false;
         }
       } else {
         reenableIncreaseBtn();
+        isNumQuesValid = true;
       }
     });
   });
