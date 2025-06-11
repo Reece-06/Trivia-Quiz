@@ -69,11 +69,11 @@ const checkSelectedDifficulty = () => {
 const handleFormSubmit = async (e) => {
   e.preventDefault();
   const isdiffInputVaid = checkSelectedDifficulty();
-  if (isdiffInputVaid && isNumQuesValid && true) {
+  if (isdiffInputVaid && isNumQuesValid) {
     const formData = new FormData(form);
 
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
+
     const trivias = await sendDataToServer(data);
     resetInputs();
 
@@ -145,7 +145,6 @@ const checkInputtedNumQues = (e) => {
     isNumQuesValid = true;
   } else {
     parent.classList.add("show-num-ques-error");
-    // parent.children[1].textContent = "Value must be between 5 and 50.";
 
     if (inputVal > MAX) {
       disableIncreaseBtn();
@@ -209,10 +208,10 @@ const changeMaxNumQuestions = async (selectedDiff) => {
   const select = document.querySelector(".category-select");
   const categorySelected = select.options[select.selectedIndex].value;
   const totalQuestionsObj = await getTotalQuestions(categorySelected);
-  console.log(totalQuestionsObj);
+
   const quesKeys = Object.keys(totalQuestionsObj);
   const quesKey = quesKeys.find((key) => key.split("_")[1] === selectedDiff);
-  console.log(quesKey);
+
   const numQuestions = totalQuestionsObj[quesKey];
   if (numQuestions >= 50) {
     MAX = 50;
@@ -221,17 +220,14 @@ const changeMaxNumQuestions = async (selectedDiff) => {
   }
   const maxNumQuesEl = document.querySelector("#num-ques-max");
   maxNumQuesEl.textContent = MAX;
-  console.log(numQuestions);
 };
 // Add form change event listener for difficulty and category.
 const addDiffCategoryEvent = () => {
   form.addEventListener("change", (e) => {
     if (e.target.classList.contains("difficulty-input")) {
-      console.log("Difficulty");
       const selectedDiff = e.target.value;
       changeMaxNumQuestions(selectedDiff);
     } else if (e.target.classList.contains("category-select")) {
-      console.log("Category");
       const label = [...labels].find((label) =>
         label.classList.contains("selected")
       );
