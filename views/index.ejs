@@ -18,12 +18,7 @@
       <form action="/api/gameSettings" method="post" class="form">
         <!-- select-easy select-medium select-hard -->
         <label for="category-input">Category</label>
-        <select
-          name="category"
-          id="category-input"
-          class="category-select"
-          required
-        >
+        <select name="category" id="category-input" class="category-select">
           <button>
             <selectedcontent></selectedcontent>
           </button>
@@ -260,7 +255,9 @@
         <!-- show-num-ques-error -->
         <div class="num-ques-upper">
           <label for="num-questions-input">Number of Questions</label>
-          <p class="num-ques-error"></p>
+          <p class="num-ques-error">
+            Value must be between 5 and <span id="num-ques-max">50</span>
+          </p>
         </div>
         <div class="num-questions-container">
           <button class="num-questions-btn" type="button" id="decrease-btn">

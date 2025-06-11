@@ -26,18 +26,20 @@ triviaGame.post("/questions", async (req, res) => {
 
   res.json(response.data.results);
 });
-triviaGame.get("/numberQuestions", async (req, res) => {
+triviaGame.get("/numberQuestions/:id", async (req, res) => {
+  const id = Number(req.params.id);
   const response = await axios.get(
-    "https://opentdb.com/api_count.php?category=10"
+    "https://opentdb.com/api_count.php?category=" + id
   );
   console.log(response.data);
-  res.json(response.data);
+  res.json(response.data.category_question_count);
 });
 triviaGame.get("/categories", async (req, res) => {
   const response = await axios.get("https://opentdb.com/api_category.php");
   console.log(response.data);
   res.json(response.data);
 });
+
 triviaGame.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

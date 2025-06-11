@@ -2,6 +2,8 @@ import { startQuiz, setTriviasData, resetGameVariables } from "./quiz-game.js";
 const form = document.querySelector(".form");
 const labels = document.querySelectorAll(".difficulty-label");
 const numQuestionsInput = document.querySelector(".num-questions-input");
+let MAX = 50;
+const MIN = 5;
 let isNumQuesValid = false;
 // Send data to server
 const sendDataToServer = async (data) => {
@@ -56,7 +58,7 @@ const checkSelectedDifficulty = () => {
     (label) => label.classList.contains("selected") && label.children[0].checked
   );
   const parent = document.querySelector(".difficulty-upper-container");
-  console.log(label);
+
   if (!label) {
     parent.classList.add("show-diff-error");
     return false;
@@ -126,17 +128,15 @@ const checkInputtedNumQues = (e) => {
   const inputVal = parseInt(e.target.value);
 
   const parent = document.querySelector(".num-ques-upper");
-  const min = 5;
-  const max = 50;
 
   reenableDecreaseBtn();
   reenableIncreaseBtn();
 
-  if (inputVal >= min && inputVal <= max) {
+  if (inputVal >= MIN && inputVal <= MAX) {
     parent.classList.remove("show-num-ques-error");
-    if (inputVal === min) {
+    if (inputVal === MIN) {
       disableDecreaseBtn();
-    } else if (inputVal === max) {
+    } else if (inputVal === MAX) {
       disableIncreaseBtn();
     } else {
       reenableDecreaseBtn();
@@ -145,9 +145,9 @@ const checkInputtedNumQues = (e) => {
     isNumQuesValid = true;
   } else {
     parent.classList.add("show-num-ques-error");
-    parent.children[1].textContent = "Value must be between 5 and 50.";
+    // parent.children[1].textContent = "Value must be between 5 and 50.";
 
-    if (inputVal > max) {
+    if (inputVal > MAX) {
       disableIncreaseBtn();
     } else {
       disableDecreaseBtn();
@@ -160,8 +160,7 @@ const addNumQuestionsEvtListener = () => {
   const numQuestionsBtns = document.querySelectorAll(".num-questions-btn");
   const numQuestionsInput = document.querySelector("#num-questions-input");
   const parent = document.querySelector(".num-ques-upper");
-  const MIN = 5;
-  const MAX = 50;
+
   numQuestionsBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       parent.classList.remove("show-num-ques-error");
@@ -198,6 +197,51 @@ const addNumQuestionsEvtListener = () => {
     });
   });
 };
+// Get total questions for a difficulty (easy, medium, hard)
+const getTotalQuestions = async (category) => {
+  const response = await fetch("/numberQuestions/" + category, {
+    method: "GET",
+  });
+  return response.json();
+};
+// Change max number of questions depending on difficulty and category
+const changeMaxNumQuestions = async (selectedDiff) => {
+  const select = document.querySelector(".category-select");
+  const categorySelected = select.options[select.selectedIndex].value;
+  const totalQuestionsObj = await getTotalQuestions(categorySelected);
+  console.log(totalQuestionsObj);
+  const quesKeys = Object.keys(totalQuestionsObj);
+  const quesKey = quesKeys.find((key) => key.split("_")[1] === selectedDiff);
+  console.log(quesKey);
+  const numQuestions = totalQuestionsObj[quesKey];
+  if (numQuestions >= 50) {
+    MAX = 50;
+  } else if (numQuestions < 50) {
+    MAX = numQuestions;
+  }
+  const maxNumQuesEl = document.querySelector("#num-ques-max");
+  maxNumQuesEl.textContent = MAX;
+  console.log(numQuestions);
+};
+// Add form change event listener for difficulty and category.
+const addDiffCategoryEvent = () => {
+  form.addEventListener("change", (e) => {
+    if (e.target.classList.contains("difficulty-input")) {
+      console.log("Difficulty");
+      const selectedDiff = e.target.value;
+      changeMaxNumQuestions(selectedDiff);
+    } else if (e.target.classList.contains("category-select")) {
+      console.log("Category");
+      const label = [...labels].find((label) =>
+        label.classList.contains("selected")
+      );
+      if (label) {
+        const selectedDiff = label.querySelector("input").value;
+        changeMaxNumQuestions(selectedDiff);
+      }
+    }
+  });
+};
 form.addEventListener("submit", handleFormSubmit);
 
 addDifficultyBtnsEvtListener();
@@ -206,3 +250,5 @@ disableDecreaseBtn();
 numQuestionsInput.addEventListener("input", (e) => checkInputtedNumQues(e));
 
 addNumQuestionsEvtListener();
+
+addDiffCategoryEvent();
