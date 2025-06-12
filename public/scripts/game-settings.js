@@ -4,7 +4,7 @@ const labels = document.querySelectorAll(".difficulty-label");
 const numQuestionsInput = document.querySelector(".num-questions-input");
 let MAX = 50;
 const MIN = 5;
-let isNumQuesValid = false;
+let isNumQuesValid = true;
 // Send data to server
 const sendDataToServer = async (data) => {
   let result;
@@ -69,6 +69,7 @@ const checkSelectedDifficulty = () => {
 const handleFormSubmit = async (e) => {
   e.preventDefault();
   const isdiffInputVaid = checkSelectedDifficulty();
+
   if (isdiffInputVaid && isNumQuesValid) {
     const formData = new FormData(form);
 
@@ -142,6 +143,7 @@ const checkInputtedNumQues = (e) => {
       reenableDecreaseBtn();
       reenableIncreaseBtn();
     }
+
     isNumQuesValid = true;
   } else {
     parent.classList.add("show-num-ques-error");
@@ -151,6 +153,7 @@ const checkInputtedNumQues = (e) => {
     } else {
       disableDecreaseBtn();
     }
+
     isNumQuesValid = false;
   }
 };

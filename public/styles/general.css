@@ -24,7 +24,8 @@ body {
 :root {
   /* Colors */
   --bg-color: #f7f7ff;
-  --primary-color: #3f88c5;
+  --primary-color-light: hsl(207, 54%, 90%);
+  --primary-color: hsl(207, 54%, 51%);
   --accent-color: hsl(0, 100%, 71%);
   --accent-color-dark: hsl(0, 100%, 20%);
   --correct-color: #38b000;
@@ -59,13 +60,14 @@ label,
 select,
 input {
   font-family: var(--body-font);
+  color: var(--text-color-1);
 }
-p {
+/* p {
   color: var(--text-color-1);
 }
 button {
   color: var(--text-color-1);
-}
+} */
 .button-style {
   align-items: center;
   appearance: none;
