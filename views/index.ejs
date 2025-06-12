@@ -4,20 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trivia Game</title>
-    <link rel="stylesheet" href="styles/styles.css" />
     <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- hide-quiz-content hide-game-settings hide-start-screen show-quiz-content show-game-settings show-start-screen hide-results show-results -->
     <div class="quiz-container">
       <div class="starting-screen">
         <h1 class="starting-screen-title">Trivia Quiz</h1>
-        <button class="starting-screen-btn">START</button>
+        <button class="starting-screen-btn button-style">START</button>
       </div>
 
       <form action="/api/gameSettings" method="post" class="form">
+        <h1 class="game-settings-label">Game Settings</h1>
         <!-- select-easy select-medium select-hard -->
-        <label for="category-input">Category</label>
+        <label class="form-label" for="category-input">Category</label>
         <select name="category" id="category-input" class="category-select">
           <button>
             <selectedcontent></selectedcontent>
@@ -217,7 +224,7 @@
         </select>
         <!-- show-diff-error -->
         <div class="difficulty-upper-container">
-          <label for="easy-input">Difficulty</label>
+          <label class="form-label" for="easy-input">Difficulty</label>
           <p class="difficulty-error">This is required.</p>
         </div>
         <div class="difficulty-inputs">
@@ -254,7 +261,9 @@
         </div>
         <!-- show-num-ques-error -->
         <div class="num-ques-upper">
-          <label for="num-questions-input">Number of Questions</label>
+          <label class="form-label" for="num-questions-input"
+            >Number of Questions</label
+          >
           <p class="num-ques-error">
             Value must be between 5 and <span id="num-ques-max">50</span>
           </p>
@@ -275,8 +284,9 @@
           </button>
         </div>
 
-        <button type="submit" class="form-submit">Submit</button>
+        <button type="submit" class="form-submit button-style">Submit</button>
       </form>
+
       <div class="quiz-content">
         <header class="header">
           <h1 class="header-title">Trivia Quiz</h1>

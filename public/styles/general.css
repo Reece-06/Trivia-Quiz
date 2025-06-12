@@ -1,5 +1,116 @@
-* {
+/* - Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98 */
+/* - Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--bg-color);
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+:root {
+  /* Colors */
+  --bg-color: #f7f7ff;
+  --primary-color: #3f88c5;
+  --accent-color: hsl(0, 100%, 71%);
+  --accent-color-dark: hsl(0, 100%, 20%);
+  --correct-color: #38b000;
+  --wrong-color: #d00000;
+  --text-color-1: #1a1a1a;
+  --text-color-2: #f7f7ff;
+  /* Fonts */
+  --headings-font: "Bangers", system-ui;
+  --body-font: "Roboto", system-ui;
+  /* Heading Size */
+  --heading-font-size: 6.2rem;
+  --heading-font-size-small: 4.4rem;
+  /* Label size */
+  --label-font-size: 2.4rem;
+  /* Body size */
+  --body-font-size: 2rem;
+  /* Button size */
+  --button-font-size: 2rem;
+  /* Padding */
+  --container-padding: 8rem;
+  --button-padding: 1.6rem 3.2rem;
+}
+h1 {
+  font-family: var(--headings-font);
+  color: var(--primary-color);
+  font-size: var(--heading-font-size);
+  margin: 0;
+}
+p,
+button,
+label,
+select,
+input {
+  font-family: var(--body-font);
+}
+p {
+  color: var(--text-color-1);
+}
+button {
+  color: var(--text-color-1);
+}
+.button-style {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    var(--accent-color) 0,
+    var(--accent-color) 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+
+  cursor: pointer;
+
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+/* .button-style:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+} */
+
+.button-style:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(45, 35, 66, 0.4) 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-style:active {
+  box-shadow: var(--accent-color-dark) 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.quiz-content {
+  display: none;
+}
+.quiz-results {
+  display: none;
+}
+
+.show-quiz-content .quiz-content {
+  display: block;
+}
+
+.show-results .quiz-results {
+  display: block;
 }

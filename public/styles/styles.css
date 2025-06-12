@@ -1,32 +1,44 @@
+/* STARTING SCREEN */
+.quiz-container {
+  /* background-color: var(--bg-color); */
+  /* border: 3px solid violet; */
+  /* padding: var(--container-padding); */
+}
 .starting-screen {
-  display: block;
-}
-.form {
-  display: none;
-}
-.quiz-content {
-  display: none;
-}
-.quiz-results {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 .hide-start-screen .starting-screen {
   display: none;
 }
-
-.show-game-settings .form {
-  display: block;
+.starting-screen-title {
+  letter-spacing: 0.5rem;
 }
-
-.show-quiz-content .quiz-content {
-  display: block;
+.starting-screen-btn {
+  font-size: var(--button-font-size);
+  font-weight: 600;
+  background-color: var(--accent-color);
+  padding: var(--button-padding);
 }
-
-.show-results .quiz-results {
-  display: block;
-}
-
 /* GAME SETTINGS */
+
+.form {
+  display: none;
+}
+.show-game-settings .form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.game-settings-label {
+  font-size: var(--heading-font-size-small);
+}
+.form-label {
+  font-size: var(--label-font-size);
+}
 .difficulty-upper-container {
   display: flex;
   gap: 1rem;
