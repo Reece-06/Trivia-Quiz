@@ -23,15 +23,18 @@ body {
 }
 :root {
   /* Colors */
-  --bg-color: #f7f7ff;
+  --bg-color: hsl(240, 100%, 98%);
   --primary-color-light: hsl(207, 54%, 90%);
   --primary-color: hsl(207, 54%, 51%);
   --accent-color: hsl(0, 100%, 71%);
   --accent-color-dark: hsl(0, 100%, 20%);
-  --correct-color: #38b000;
-  --wrong-color: #d00000;
-  --text-color-1: #1a1a1a;
-  --text-color-2: #f7f7ff;
+  --correct-color-light: hsl(101, 100%, 75%);
+  --correct-color: hsl(101, 100%, 35%);
+  --wrong-color-light: hsl(0, 100%, 81%);
+  --wrong-color: hsl(0, 100%, 41%);
+  --text-color-1: hsl(0, 0%, 10%);
+  --text-color-2: hsl(240, 100%, 98%);
+  --disabled-ques-btn: hsl(240, 20%, 90%);
   /* Fonts */
   --headings-font: "Bangers", system-ui;
   --body-font: "Roboto", system-ui;
@@ -99,20 +102,13 @@ button {
   transform: translateY(-2px);
 }
 
-.button-style:active {
+.button-style:not(:disabled):active {
   box-shadow: var(--accent-color-dark) 0 3px 7px inset;
   transform: translateY(2px);
 }
 
-.quiz-content {
-  display: none;
-}
 .quiz-results {
   display: none;
-}
-
-.show-quiz-content .quiz-content {
-  display: block;
 }
 
 .show-results .quiz-results {

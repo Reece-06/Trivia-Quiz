@@ -287,21 +287,25 @@
 
       <div class="quiz-content">
         <header class="header">
-          <h1 class="header-title">Trivia Quiz</h1>
-          <h2 class="header-category-p">
-            Category: <span class="header-category">Animals</span>
-          </h2>
-          <div class="header-score-container">
-            <p class="header-score">
-              Score: <span class="correct-answer-count"></span>/<span
-                class="num-question"
-              ></span>
+          <div class="header-title-cat">
+            <h1 class="header-title">Trivia Quiz</h1>
+            <p class="header-category-p">
+              <span class="header-category">Animals</span>
             </p>
           </div>
-          <p>Timer: <span class="current-time"></span></p>
+          <!-- <div class="header-score-container"> -->
+          <p class="header-timer">Time <span class="current-time"></span></p>
+          <!-- </div> -->
         </header>
+        <p class="header-score">
+          Your score <span class="correct-answer-count"></span>/<span
+            class="num-question"
+          ></span>
+        </p>
         <main class="main">
-          <p class="main-question">What does XML stand for?</p>
+          <div class="main-ques-container">
+            <p class="main-question">What does XML stand for?</p>
+          </div>
           <div class="main-answer-container">
             <button class="main-button">
               <p class="main-answer">extended Markup Language</p>
@@ -329,7 +333,9 @@
             <span class="aside-curr-question">1</span> of
             <span class="num-question"></span> questions
           </p>
-          <button class="aside-next" type="button" disabled>Next</button>
+          <button class="aside-next button-style" type="button" disabled>
+            Next
+          </button>
         </aside>
       </div>
       <div class="quiz-results">
