@@ -339,18 +339,30 @@
         </aside>
       </div>
       <div class="quiz-results">
-        <img src="" alt="" />
+        <!-- style="width: 300px; height: 300px" -->
+        <dotlottie-player
+          background="transparent"
+          speed="1"
+          loop
+          autoplay
+          id="result-animation"
+          class="result-animation"
+        ></dotlottie-player>
         <p class="quiz-results-p1">You have completed the quiz!</p>
         <p class="quiz-results-p2">
-          Nice you have got <span class="results-num-corr"></span> out of
+          You've got <span class="results-num-corr"></span> out of
           <span class="results-num-ques"></span>
         </p>
         <div class="results-btn-container">
-          <button class="results-try">Try Again</button>
-          <button class="results-game-sett">Game Settings</button>
+          <button class="result-btn results-try button-style">Try Again</button>
+          <button class="result-btn results-game-sett">Game Settings</button>
         </div>
       </div>
     </div>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
     <script type="module" src="scripts/game-settings.js"></script>
     <script type="module" src="scripts/starting-screen.js"></script>
     <script type="module" src="scripts/quiz-game.js"></script>

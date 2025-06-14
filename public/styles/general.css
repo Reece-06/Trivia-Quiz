@@ -67,12 +67,7 @@ input {
   font-family: var(--body-font);
   color: var(--text-color-1);
 }
-/* p {
-  color: var(--text-color-1);
-}
-button {
-  color: var(--text-color-1);
-} */
+
 .button-style {
   align-items: center;
   appearance: none;
@@ -91,11 +86,6 @@ button {
   transition: box-shadow 0.15s, transform 0.15s;
 }
 
-/* .button-style:focus {
-  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
-    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
-} */
-
 .button-style:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
     rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(45, 35, 66, 0.4) 0 -3px 0 inset;
@@ -105,12 +95,4 @@ button {
 .button-style:not(:disabled):active {
   box-shadow: var(--accent-color-dark) 0 3px 7px inset;
   transform: translateY(2px);
-}
-
-.quiz-results {
-  display: none;
-}
-
-.show-results .quiz-results {
-  display: block;
 }
