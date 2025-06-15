@@ -1,9 +1,5 @@
 /* STARTING SCREEN */
-.quiz-container {
-  /* background-color: var(--bg-color); */
-  /* border: 3px solid violet; */
-  /* padding: var(--container-padding); */
-}
+
 .starting-screen {
   display: flex;
   flex-direction: column;

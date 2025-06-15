@@ -49,23 +49,22 @@ const showResultMessage = (score, totalQues) => {
 
   const calulatedPercent = (score / totalQues) * 100;
   console.log(calulatedPercent);
-  // const result = resultData.find((result) => {
-  //   if (typeof result.percent == "number") {
-  //     if (result.percent === calulatedPercent) {
-  //       return true;
-  //     }
-  //   } else {
-  //     const [percent1, percent2] = result.percent;
-  //     if (calulatedPercent >= percent1 && calulatedPercent <= percent2) {
-  //       return true;
-  //     }
-  //   }
-  //   return false;
-  // });
-  const result = resultData[5];
+  const result = resultData.find((result) => {
+    if (typeof result.percent == "number") {
+      if (result.percent === calulatedPercent) {
+        return true;
+      }
+    } else {
+      const [percent1, percent2] = result.percent;
+      if (calulatedPercent >= percent1 && calulatedPercent <= percent2) {
+        return true;
+      }
+    }
+    return false;
+  });
   console.log(result);
   messageEl.textContent = result.resultMessage;
-  // lottieEl.setAttribute("src", result.animationURL);
+
   lottieEl.load(result.animationURL);
 };
 const showGameResults = (score, numberOfQues) => {
