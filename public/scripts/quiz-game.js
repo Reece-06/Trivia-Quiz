@@ -1,6 +1,8 @@
 import { showGameResults } from "./game-results.js";
 const nextBtn = document.querySelector(".aside-next");
 const answerBtns = document.querySelectorAll(".main-button");
+// const seeMoreBtn = document.querySelector(".see-more");
+const exitModalBtn = document.querySelector(".question-modal-exit");
 let triviasData;
 let currentTriviaInx = 0;
 let currentQuizTimer;
@@ -38,7 +40,23 @@ const changeAnswersValue = (newAnswers) => {
 // Change the text content of question
 const changeQuestionValue = (question) => {
   const questionInput = document.querySelector(".main-question");
-  questionInput.innerHTML = question;
+  const questionCharCount = question.length;
+  console.log(questionCharCount);
+
+  // questionInput.innerHTML = question;
+  const completeQuesEl = document.querySelector(".complete-question");
+  const seeMoreEl = document.createElement("span");
+  if (questionCharCount > 85) {
+    let newQuesDisplay = question.substring(0, 80);
+    newQuesDisplay = newQuesDisplay + "... ";
+    questionInput.innerHTML = newQuesDisplay;
+    seeMoreEl.textContent = "See More";
+    questionInput.appendChild(seeMoreEl);
+    completeQuesEl.textContent = question;
+    seeMoreEl.addEventListener("click", showQuestionModal);
+  } else {
+    questionInput.innerHTML = question;
+  }
 };
 // Change current question number
 const changeCurrQuestionNum = (currentQuesNum) => {
@@ -168,6 +186,16 @@ const resetGameVariables = () => {
 const resetCurrTriviaInx = () => {
   currentTriviaInx = 0;
 };
+// Show the modal that contains the whole trivia question.
+const showQuestionModal = () => {
+  const body = document.querySelector("body");
+  body.classList.add("show-modal");
+};
+// Remove modal that contains the whole trivia question.
+const removeQuestionModal = () => {
+  const body = document.querySelector("body");
+  body.classList.remove("show-modal");
+};
 // Start the quiz
 const startQuiz = () => {
   // let isGameDone = false;
@@ -197,5 +225,6 @@ nextBtn.addEventListener("click", () => {
     nextBtn.textContent = "Next";
   }
 });
+exitModalBtn.addEventListener("click", removeQuestionModal);
 
 export { startQuiz, setTriviasData, resetGameVariables, resetCurrTriviaInx };
