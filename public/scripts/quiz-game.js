@@ -54,16 +54,20 @@ const changeQuestionValue = (question) => {
   // questionInput.innerHTML = question;
   const completeQuesEl = document.querySelector(".complete-question");
   const seeMoreEl = document.createElement("span");
-  if (questionCharCount > 85) {
-    let newQuesDisplay = decodedQuestion.substring(0, 80);
-    newQuesDisplay = newQuesDisplay + "... ";
-    questionInput.innerHTML = newQuesDisplay;
-    seeMoreEl.textContent = "Read More";
-    seeMoreEl.classList.add("read-more");
-    questionInput.appendChild(seeMoreEl);
-    completeQuesEl.innerHTML = decodedQuestion;
+  if (window.screen.width < 736) {
+    if (questionCharCount > 85) {
+      let newQuesDisplay = decodedQuestion.substring(0, 80);
+      newQuesDisplay = newQuesDisplay + "... ";
+      questionInput.innerHTML = newQuesDisplay;
+      seeMoreEl.textContent = "Read More";
+      seeMoreEl.classList.add("read-more");
+      questionInput.appendChild(seeMoreEl);
+      completeQuesEl.innerHTML = decodedQuestion;
 
-    seeMoreEl.addEventListener("click", showQuestionModal);
+      seeMoreEl.addEventListener("click", showQuestionModal);
+    } else {
+      questionInput.innerHTML = decodedQuestion;
+    }
   } else {
     questionInput.innerHTML = decodedQuestion;
   }
