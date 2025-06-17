@@ -47,9 +47,8 @@ const decodeHtmlEntities = (html) => {
 const changeQuestionValue = (question) => {
   const questionInput = document.querySelector(".main-question");
   const decodedQuestion = decodeHtmlEntities(question);
-  console.log(decodedQuestion);
+
   const questionCharCount = decodedQuestion.length;
-  console.log(questionCharCount);
 
   // questionInput.innerHTML = question;
   const completeQuesEl = document.querySelector(".complete-question");

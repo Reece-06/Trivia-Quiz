@@ -48,7 +48,7 @@ const showResultMessage = (score, totalQues) => {
   const lottieEl = document.querySelector("#result-animation");
 
   const calulatedPercent = (score / totalQues) * 100;
-  console.log(calulatedPercent);
+
   const result = resultData.find((result) => {
     if (typeof result.percent == "number") {
       if (result.percent === calulatedPercent) {
@@ -62,7 +62,7 @@ const showResultMessage = (score, totalQues) => {
     }
     return false;
   });
-  console.log(result);
+
   messageEl.textContent = result.resultMessage;
 
   lottieEl.load(result.animationURL);

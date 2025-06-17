@@ -17,8 +17,6 @@ const sendDataToServer = async (data) => {
       },
     });
     result = await response.json();
-
-    console.log("Server response:", result);
   } catch (error) {
     console.log(error);
   }
@@ -51,6 +49,11 @@ const resetInputs = () => {
 
   selectInput.value = 9;
 };
+// Hide input validation messages
+const hideInputValMess = () => {
+  const diffParent = document.querySelector(".difficulty-upper-container");
+  diffParent.classList.remove("show-diff-error");
+};
 // Check if a difficulty is selected
 const checkSelectedDifficulty = () => {
   const labels = document.querySelectorAll(".difficulty-label");
@@ -77,6 +80,7 @@ const handleFormSubmit = async (e) => {
 
     const trivias = await sendDataToServer(data);
     resetInputs();
+    hideInputValMess();
 
     resetGameVariables();
     setTriviasData(trivias);

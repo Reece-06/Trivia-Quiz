@@ -12,9 +12,10 @@ const addButtonsEvtListener = () => {
 // Play the click sound of buttons
 const playClickSound = (e) => {
   const isMainButton = e.target.classList.contains("main-button");
+  const isIncDecBtn = e.target.classList.contains("num-questions-btn");
   const isCorrect = e.target.dataset.correct;
 
-  if (!isMainButton) {
+  if (!isMainButton && !isIncDecBtn) {
     correctClickSound.pause();
     correctClickSound.currentTime = 0;
     wrongClickSound.pause();
@@ -22,7 +23,7 @@ const playClickSound = (e) => {
     clickSound.play();
   } else if (isMainButton && isCorrect) {
     correctClickSound.play();
-  } else {
+  } else if (isMainButton && !isCorrect) {
     wrongClickSound.play();
   }
 };
