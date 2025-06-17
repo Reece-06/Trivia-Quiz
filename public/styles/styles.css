@@ -271,7 +271,7 @@ selectedcontent .category-img {
   color: var(--text-color-1);
 }
 .main-ques-container {
-  height: 7rem;
+  height: 7.1rem;
   margin-bottom: 2rem;
   display: flex; /* Make it a flex container */
   flex-direction: column; /* Stack children vertically */
@@ -285,7 +285,9 @@ selectedcontent .category-img {
   white-space: pre-wrap; /* preserves line breaks */
   overflow-wrap: break-word;
 }
-
+.read-more {
+  text-decoration: underline;
+}
 .main-answer-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -295,7 +297,7 @@ selectedcontent .category-img {
   font-size: var(--body-font-size);
   border-radius: 1rem;
   border: 0.3rem solid var(--text-color-1);
-  min-height: 12rem;
+  height: 12rem;
   background-color: transparent;
   padding: 1rem;
   transition: all 0.3s;
@@ -395,15 +397,22 @@ selectedcontent .category-img {
   position: relative;
   background-color: var(--bg-color);
   box-shadow: #777 0 0 7px;
+  border-radius: 0.5rem;
 }
 .question-modal-exit {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  width: 4rem;
-  height: 4rem;
+
   border: none;
   background: transparent;
+  background-image: url("https://img.icons8.com/ios-filled/50/multiply.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  background-size: 2.5rem;
+  /* width: 2rem;
+  height: 2rem; */
 }
 .complete-question {
   font-size: var(--body-font-size);

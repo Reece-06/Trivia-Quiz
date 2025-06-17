@@ -37,25 +37,35 @@ const changeAnswersValue = (newAnswers) => {
     btn.innerHTML = newAnswers[index];
   });
 };
+// Decodes html entities from the trivia questions
+const decodeHtmlEntities = (html) => {
+  const txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
+};
 // Change the text content of question
 const changeQuestionValue = (question) => {
   const questionInput = document.querySelector(".main-question");
-  const questionCharCount = question.length;
+  const decodedQuestion = decodeHtmlEntities(question);
+  console.log(decodedQuestion);
+  const questionCharCount = decodedQuestion.length;
   console.log(questionCharCount);
 
   // questionInput.innerHTML = question;
   const completeQuesEl = document.querySelector(".complete-question");
   const seeMoreEl = document.createElement("span");
   if (questionCharCount > 85) {
-    let newQuesDisplay = question.substring(0, 80);
+    let newQuesDisplay = decodedQuestion.substring(0, 80);
     newQuesDisplay = newQuesDisplay + "... ";
     questionInput.innerHTML = newQuesDisplay;
-    seeMoreEl.textContent = "See More";
+    seeMoreEl.textContent = "Read More";
+    seeMoreEl.classList.add("read-more");
     questionInput.appendChild(seeMoreEl);
-    completeQuesEl.textContent = question;
+    completeQuesEl.innerHTML = decodedQuestion;
+
     seeMoreEl.addEventListener("click", showQuestionModal);
   } else {
-    questionInput.innerHTML = question;
+    questionInput.innerHTML = decodedQuestion;
   }
 };
 // Change current question number
