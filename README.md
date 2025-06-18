@@ -45,6 +45,6 @@ Since the game consists of only one page, I implemented client-side rendering us
     ```bash
     nodemon index.js
 
-4. Oppen your browser
+4. Open your browser
 
-Visit: http://localhost:3000
+&nbsp;&nbsp;&nbsp;&nbsp;Visit: http://localhost:3000
