@@ -5,7 +5,7 @@ Thinkfast! is a trivia game where users must think quickly and choose the correc
 
 I created this project to challenge my friends and family to see who has the higher IQ. Additionally, I wanted to deepen my understanding of REST APIs and how to integrate them into a web application.
 
-To retrieve trivia questions and answers, I used the open[**trivia database API**](https://opentdb.com/api_config.php). 
+To retrieve trivia questions and answers, I used the [**open trivia database API**](https://opentdb.com/api_config.php). 
 
 Since the game consists of only one page, I implemented client-side rendering using JavaScript DOM manipulation and CSS.
 
