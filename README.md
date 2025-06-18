@@ -1,5 +1,5 @@
 
-# Thinkfast! (Trivia Game)
+# 🧠⏲️ Thinkfast! (Trivia Game)
 
 Thinkfast! is a trivia game where users must think quickly and choose the correct answer before the timer runs out. Players can select from various question categories and difficulty levels — easy, medium, or hard — based on their preference. 
 
