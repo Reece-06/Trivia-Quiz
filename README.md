@@ -1,7 +1,7 @@
 
 # 🧠⏲️ Thinkfast! (Trivia Game)
 
-Thinkfast! is a trivia game where users must think quickly and choose the correct answer before the timer runs out. Players can select from various question categories and difficulty levels — easy, medium, or hard — based on their preference. 
+Thinkfast! is a trivia game where users must think quickly and choose the correct answer before the timer runs out. Players can select from various question categories and difficulty levels easy, medium, or hard based on their preference. 
 
 I created this project to challenge my friends and family to see who has the higher IQ. Additionally, I wanted to deepen my understanding of REST APIs and how to integrate them into a web application.
 
