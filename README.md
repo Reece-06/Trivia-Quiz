@@ -12,7 +12,7 @@ Since the game consists of only one page, I implemented client-side rendering us
 ## 🚀 Features
 
 - Multiple Categories
-- Difficulty Leavels
+- Difficulty Levels
 - Timed Questions
 - Immediate Answer Feedback
 - Replay Anytime
