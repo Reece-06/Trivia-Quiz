@@ -145,10 +145,10 @@
 .category-select,
 ::picker(select) {
   appearance: base-select;
+  max-height: 20rem;
 }
 ::picker(select) {
   border-radius: 1rem;
-  max-height: 20rem;
   border: 0.1rem solid var(--text-color-1);
 }
 .category-select,

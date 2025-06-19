@@ -16,7 +16,7 @@ html {
 
 body {
   background-color: var(--bg-color);
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   display: grid;
   place-items: center;
