@@ -87,7 +87,7 @@ const changeNumQuestionsValue = (numOfQuestions) => {
 // Change category text content
 const changeCategoryValue = (category) => {
   const categoryInput = document.querySelector(".header-category");
-  categoryInput.textContent = category;
+  categoryInput.innerHTML = category;
 };
 // Removes previous correct data attribute.
 const removeCorrectDataAttr = () => {
