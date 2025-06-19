@@ -13,9 +13,11 @@ const addButtonsEvtListener = () => {
 const playClickSound = (e) => {
   const isMainButton = e.target.classList.contains("main-button");
   const isIncDecBtn = e.target.classList.contains("num-questions-btn");
+  const isReadMoreExit = e.target.classList.contains("question-modal-exit");
+
   const isCorrect = e.target.dataset.correct;
 
-  if (!isMainButton && !isIncDecBtn) {
+  if (!isMainButton && !isIncDecBtn && !isReadMoreExit) {
     correctClickSound.pause();
     correctClickSound.currentTime = 0;
     wrongClickSound.pause();
@@ -29,3 +31,4 @@ const playClickSound = (e) => {
 };
 
 addButtonsEvtListener();
+export default wrongClickSound;

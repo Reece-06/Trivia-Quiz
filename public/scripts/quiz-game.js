@@ -1,4 +1,5 @@
 import { showGameResults } from "./game-results.js";
+import wrongClickSound from "./game-sounds.js";
 const nextBtn = document.querySelector(".aside-next");
 const answerBtns = document.querySelectorAll(".main-button");
 // const seeMoreBtn = document.querySelector(".see-more");
@@ -136,6 +137,7 @@ const startTimer = () => {
       nextBtn.removeAttribute("disabled");
       revealAllAnswers();
       disableAllAnswerBtns();
+      wrongClickSound.play();
     }
   }, 1000);
   return quizTimer;
