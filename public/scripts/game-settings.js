@@ -245,13 +245,14 @@ const addDiffCategoryEvent = () => {
     }
   });
 };
-form.addEventListener("submit", handleFormSubmit);
 
-addDifficultyBtnsEvtListener();
-disableDecreaseBtn();
-
-numQuestionsInput.addEventListener("input", (e) => checkInputtedNumQues(e));
-
-addNumQuestionsEvtListener();
-
-addDiffCategoryEvent();
+export {
+  form,
+  handleFormSubmit,
+  addDifficultyBtnsEvtListener,
+  disableDecreaseBtn,
+  numQuestionsInput,
+  checkInputtedNumQues,
+  addNumQuestionsEvtListener,
+  addDiffCategoryEvent,
+};

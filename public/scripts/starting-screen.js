@@ -15,4 +15,4 @@ const startGame = () => {
   showGameSettings(parentContainer);
 };
 
-startBtn.addEventListener("click", startGame);
+export { startBtn, startGame };
