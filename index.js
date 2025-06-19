@@ -30,7 +30,7 @@ triviaGame.get("/numberQuestions/:id", async (req, res) => {
   const response = await axios.get(
     "https://opentdb.com/api_count.php?category=" + id
   );
-  console.log(response.data);
+
   res.json(response.data.category_question_count);
 });
 
