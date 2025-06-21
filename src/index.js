@@ -1,4 +1,4 @@
-import { startBtn, startGame } from "../public/scripts/starting-screen.js";
+import { startBtn, startGame } from "./scripts/starting-screen.js";
 import {
   form,
   handleFormSubmit,
@@ -8,7 +8,7 @@ import {
   checkInputtedNumQues,
   addNumQuestionsEvtListener,
   addDiffCategoryEvent,
-} from "../public/scripts/game-settings.js";
+} from "./scripts/game-settings.js";
 
 startBtn.addEventListener("click", startGame);
 

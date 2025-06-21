@@ -5,7 +5,7 @@ const triviaGame = express();
 const port = 3000;
 const API_URL = "https://opentdb.com";
 const API_ENDPOINT = "/api.php";
-triviaGame.use(express.static("public"));
+triviaGame.use(express.static("src"));
 triviaGame.use(express.json());
 triviaGame.get("/", (req, res) => {
   res.render("index.ejs");
