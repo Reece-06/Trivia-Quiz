@@ -30,5 +30,5 @@ const playClickSound = (e) => {
   }
 };
 
-addButtonsEvtListener();
 export default wrongClickSound;
+export { addButtonsEvtListener };

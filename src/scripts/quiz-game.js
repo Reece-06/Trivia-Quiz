@@ -227,8 +227,8 @@ const startQuiz = () => {
 
   currentQuizTimer = startTimer();
 };
-answerBtnsAddEventListener();
-nextBtn.addEventListener("click", () => {
+// handles answer btns
+const handleAnswerBtns = () => {
   if (currentTriviaInx + 1 === triviasData.length) {
     nextBtn.textContent = "See Results";
   }
@@ -239,7 +239,16 @@ nextBtn.addEventListener("click", () => {
     showGameResults(currentCorrAnsCount, currentTriviaInx);
     nextBtn.textContent = "Next";
   }
-});
-exitModalBtn.addEventListener("click", removeQuestionModal);
+};
 
-export { startQuiz, setTriviasData, resetGameVariables, resetCurrTriviaInx };
+export {
+  startQuiz,
+  setTriviasData,
+  resetGameVariables,
+  resetCurrTriviaInx,
+  answerBtnsAddEventListener,
+  nextBtn,
+  handleAnswerBtns,
+  exitModalBtn,
+  removeQuestionModal,
+};

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ThinkFast!</title>
+    <link rel="icon" href="images/logo.png" type="image/png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+  </head>
+  <!-- show-modal -->
+  <body>
+    <!-- hide-quiz-content hide-game-settings hide-start-screen show-quiz-content show-game-settings show-start-screen hide-results show-results -->
+    <div class="quiz-container">
+      <div class="starting-screen">
+        <h1 class="starting-screen-title">ThinkFast!</h1>
+        <button class="starting-screen-btn button-style">START</button>
+      </div>
+
+      <form action="/api/gameSettings" method="post" class="form">
+        <h1 class="game-settings-label">Game Settings</h1>
+        <!-- select-easy select-medium select-hard -->
+        <label class="form-label" for="category-input">Category</label>
+        <select name="category" id="category-input" class="category-select">
+          <button>
+            <selectedcontent></selectedcontent>
+          </button>
+          <option class="category-option" value="9">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/brain.png"
+              alt="General Knowledge"
+            />
+            <div class="option-name">General Knowledge</div>
+          </option>
+          <option class="category-option" value="10">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/open-book--v2.png"
+              alt="Books"
+            />
+            <div class="option-name">Books</div>
+          </option>
+          <option class="category-option" value="11">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/documentary.png"
+              alt="documentary"
+            />
+            <div class="option-name">Film</div>
+          </option>
+          <option class="category-option" value="12">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/musical-notes.png"
+              alt="Music"
+            />
+            <div class="option-name">Music</div>
+          </option>
+          <option class="category-option" value="13">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/comedy.png"
+              alt="comedy"
+            />
+            <div class="option-name">Musicals & Theatres</div>
+          </option>
+          <option class="category-option" value="14">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/retro-tv.png"
+              alt="Television"
+            />
+            <div class="option-name">Television</div>
+          </option>
+          <option class="category-option" value="15">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/controller.png"
+              alt="Video Games"
+            />
+            <div class="option-name">Video Games</div>
+          </option>
+          <option class="category-option" value="16">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/dice.png"
+              alt="dice"
+            />
+            <div class="option-name">Board Games</div>
+          </option>
+          <option class="category-option" value="17">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/nature.png"
+              alt="Nature"
+            />
+            <div class="option-name">Science & Nature</div>
+          </option>
+          <option class="category-option" value="18">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/workstation.png"
+              alt="workstation"
+            />
+            <div class="option-name">Computers</div>
+          </option>
+          <option class="category-option" value="19">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/calculator.png"
+              alt="Mathematics"
+            />
+            <div class="option-name">Mathematics</div>
+          </option>
+          <option class="category-option" value="20">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/unicorn.png"
+              alt="unicorn"
+            />
+            <div class="option-name">Mythology</div>
+          </option>
+          <option class="category-option" value="21">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/soccer-ball.png"
+              alt="Sports"
+            />
+            <div class="option-name">Sports</div>
+          </option>
+          <option class="category-option" value="22">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/globe--v1.png"
+              alt="Geography"
+            />
+            <div class="option-name">Geography</div>
+          </option>
+          <option class="category-option" value="23">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/scroll.png"
+              alt="scroll"
+            />
+            <div class="option-name">History</div>
+          </option>
+          <option class="category-option" value="24">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/us-capitol.png"
+              alt="us-capitol"
+            />
+            <div class="option-name">Politics</div>
+          </option>
+          <option class="category-option" value="25">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/paint-palette.png"
+              alt="Art"
+            />
+            <div class="option-name">Art</div>
+          </option>
+          <option class="category-option" value="26">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/star.png"
+              alt="Celebrities"
+            />
+            <div class="option-name">Celebrities</div>
+          </option>
+          <option class="category-option" value="27">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/cat.png"
+              alt="Animals"
+            />
+            <div class="option-name">Animals</div>
+          </option>
+          <option class="category-option" value="28">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/car.png"
+              alt="Vehicles"
+            />
+            <div class="option-name">Vehicles</div>
+          </option>
+          <option class="category-option" value="29">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/magazine.png"
+              alt="magazine"
+            />
+            <div class="option-name">Comics</div>
+          </option>
+          <option class="category-option" value="30">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/electronics.png"
+              alt="Gadgets"
+            />
+            <div class="option-name">Gadgets</div>
+          </option>
+          <option class="category-option" value="31">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/sakura.png"
+              alt="sakura"
+            />
+            <div class="option-name">Japanese Anime & Manga</div>
+          </option>
+          <option class="category-option" value="32">
+            <img
+              class="category-img"
+              src="https://img.icons8.com/3d-fluency/94/tv-show.png"
+              alt="Cartoons"
+            />
+            <div class="option-name">Cartoon & Animations</div>
+          </option>
+        </select>
+        <!-- show-diff-error -->
+        <div class="difficulty-upper-container">
+          <label class="form-label" for="easy-input">Difficulty</label>
+          <p class="difficulty-error">This is required.</p>
+        </div>
+        <div class="difficulty-inputs">
+          <label for="easy-input" class="difficulty-label">
+            <input
+              class="difficulty-input"
+              type="radio"
+              id="easy-input"
+              name="difficulty"
+              value="easy"
+            />
+            <p class="difficulty-name">Easy</p>
+          </label>
+          <label for="medium-input" class="difficulty-label">
+            <input
+              class="difficulty-input"
+              type="radio"
+              id="medium-input"
+              name="difficulty"
+              value="medium"
+            />
+            <p class="difficulty-name">Medium</p>
+          </label>
+          <label for="hard-input" class="difficulty-label">
+            <input
+              class="difficulty-input"
+              type="radio"
+              id="hard-input"
+              name="difficulty"
+              value="hard"
+            />
+            <p class="difficulty-name">Hard</p>
+          </label>
+        </div>
+        <!-- show-num-ques-error -->
+        <div class="num-ques-upper">
+          <label class="form-label" for="num-questions-input">Questions</label>
+          <p class="num-ques-error">
+            Value must be between 5 and <span id="num-ques-max">50</span>.
+          </p>
+        </div>
+        <div class="num-questions-container">
+          <button class="num-questions-btn" type="button" id="decrease-btn">
+            -
+          </button>
+          <input
+            id="num-questions-input"
+            name="numQuestions"
+            type="number"
+            class="num-questions-input"
+            value="5"
+          />
+          <button class="num-questions-btn" type="button" id="increase-btn">
+            +
+          </button>
+        </div>
+
+        <button type="submit" class="form-submit button-style">Submit</button>
+      </form>
+
+      <div class="quiz-content">
+        <header class="header">
+          <div class="header-title-cat">
+            <h1 class="header-title">ThinkFast!</h1>
+            <p class="header-category-p">
+              <span class="header-category">Animals</span>
+            </p>
+          </div>
+          <!-- <div class="header-score-container"> -->
+          <p class="header-timer">Time <span class="current-time"></span></p>
+          <!-- </div> -->
+        </header>
+        <p class="header-score">
+          Your score <span class="correct-answer-count"></span>/<span
+            class="num-question"
+          ></span>
+        </p>
+        <main class="main">
+          <div class="main-ques-container">
+            <p class="main-question"></p>
+          </div>
+          <div class="main-answer-container">
+            <button class="main-button"></button>
+
+            <button class="main-button"></button>
+
+            <button class="main-button"></button>
+
+            <button class="main-button"></button>
+          </div>
+        </main>
+        <aside class="aside">
+          <p class="aside-question-count">
+            <span class="aside-curr-question">1</span> of
+            <span class="num-question"></span> questions
+          </p>
+          <button class="aside-next button-style" type="button" disabled>
+            Next
+          </button>
+        </aside>
+      </div>
+      <div class="quiz-results">
+        <dotlottie-player
+          background="transparent"
+          speed="1"
+          loop
+          autoplay
+          id="result-animation"
+          class="result-animation"
+        ></dotlottie-player>
+        <p class="quiz-results-p1">You have completed the quiz!</p>
+        <p class="quiz-results-p2">
+          You've got <span class="results-num-corr"></span> out of
+          <span class="results-num-ques"></span>
+        </p>
+        <div class="results-btn-container">
+          <button class="result-btn results-try button-style">Try Again</button>
+          <button class="result-btn results-game-sett">Game Settings</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-container">
+      <div class="question-modal">
+        <p class="complete-question">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto
+          ab, et quasi perferendis optio adipisci quod laboriosam, dolor
+          placeat, vel non? Modi error, nihil amet in consequuntur impedit
+          consectetur? Id!
+        </p>
+        <button class="question-modal-exit"></button>
+      </div>
+    </div>
+    <!-- <script type="module" src="scripts/game-settings.js"></script>
+    <script type="module" src="scripts/starting-screen.js"></script>
+    <script type="module" src="scripts/quiz-game.js"></script>
+    <script type="module" src="scripts/game-results.js"></script>
+    <script type="module" src="scripts/game-sounds.js"></script> -->
+    <!-- <script type="module" src="dist/main.js"></script> -->
+  </body>
+</html>

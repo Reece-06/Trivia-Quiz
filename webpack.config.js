@@ -1,5 +1,6 @@
 import path from "path";
 import { fileURLToPath } from "url";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 // simulate __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -19,4 +20,9 @@ export default {
     ],
   },
   mode: "development",
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/template.html",
+    }),
+  ],
 };

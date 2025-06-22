@@ -1,14 +1,21 @@
 import express from "express";
 import axios from "axios";
-
+import path from "path";
+import { fileURLToPath } from "url";
 const triviaGame = express();
 const port = 3000;
 const API_URL = "https://opentdb.com";
 const API_ENDPOINT = "/api.php";
-triviaGame.use(express.static("src"));
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+triviaGame.use(express.static(path.join(__dirname, "src", "dist")));
 triviaGame.use(express.json());
+
 triviaGame.get("/", (req, res) => {
-  res.render("index.ejs");
+  // res.render("index.ejs");
+  res.sendFile(path.join(__dirname, "src", "dist", "index.html"));
 });
 
 triviaGame.post("/questions", async (req, res) => {
