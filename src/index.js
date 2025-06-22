@@ -1,4 +1,6 @@
 import { startBtn, startGame } from "./scripts/starting-screen.js";
+import "./styles/general.css";
+import "./styles/styles.css";
 import {
   form,
   handleFormSubmit,

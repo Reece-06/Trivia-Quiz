@@ -1,8 +1,22 @@
 import path from "path";
-module.exports = {
+import { fileURLToPath } from "url";
+
+// simulate __dirname in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+export default {
   entry: "./src/index.js",
   output: {
-    filename: "hello.js",
-    path: path.resolve(__dirname, "code"),
+    filename: "main.js",
+    path: path.resolve(__dirname + "/src", "dist"),
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
+  mode: "development",
 };
