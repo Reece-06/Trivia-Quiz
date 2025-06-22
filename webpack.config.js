@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 export default {
   entry: "./src/index.js",
   output: {
-    filename: "main.js",
+    filename: "main.[hash].js",
     path: path.resolve(__dirname + "/src", "dist"),
   },
   module: {

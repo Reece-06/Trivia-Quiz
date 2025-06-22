@@ -24,3 +24,4 @@ numQuestionsInput.addEventListener("input", checkInputtedNumQues);
 addNumQuestionsEvtListener();
 
 addDiffCategoryEvent();
+console.log("hi");
